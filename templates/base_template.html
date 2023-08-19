@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include 'partials/head.html' %}
+
+        <title>
+            Blog - {% block titleBlock %}{% endblock %}
+        </title>
+    </head>
+
+    <body>
+        {% include 'patials/nav.html' %}
+
+        {% block mainBlock %}{% endblock %}
+
+        {% include 'partials/footer.html' %}
+    </body>
+</html>
