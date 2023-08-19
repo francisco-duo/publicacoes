@@ -1,0 +1,14 @@
+# caches
+
+__pychache__
+
+# venvs
+
+.venv
+.env
+env
+venv
+
+# sql
+
+db.sqlite3

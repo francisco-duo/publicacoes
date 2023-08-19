@@ -1,0 +1,25 @@
+USUARIO
+    - id (int);
+    - nome (varchar);
+    - email (varchar);
+    - senha (hash(varchar));
+
+CATEGORIA
+    - id (int);
+    - nome (varchar);
+
+COMENTARIO
+    - id (int);
+    - id_usuario (int) -> fk_usuario
+    - conteudo (varchar);
+
+PUBLICACAO
+    - id (int);
+    - id_usuario (int);  -> fk_usuario
+    - id_categoria (int); -> fk_categoria
+    - id_comentario (int); -> fk_comentario
+    - titulo (varchar);
+    - subtitulo (varchar);
+    - data_publicacao (date);
+    - conteudo (char);
+    - capa (iamge);
