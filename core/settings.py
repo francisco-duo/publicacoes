@@ -32,12 +32,18 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'home_page',
+]
 
 EXTERNAL_APPS = []
 
 DJANGO_APPS = [
     'admin_soft.apps.AdminSoftDashboardConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,6 +64,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
@@ -73,10 +87,29 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # django allauth
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '680701200409-pdkhiv2b16173tg5miil61cvp2g25ssp.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        },
+        "SCOPE": [
+            "profile",
+            "email",
+        ],
+    }
+}
 
 WSGI_APPLICATION = 'core.wsgi.application'
 

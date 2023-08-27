@@ -1,0 +1,20 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block mainBlock %}
+<section>
+    <div class="row align-items-center">
+        <div class="col-6">
+            <div class="container text-justify ms-5">
+                <h1 id="title">BLOG GTB</h1>
+                <h3 id="title-description">{{ user.email }}</h3>
+                
+            </div>
+        </div>
+        <div class="col-6 p-0">
+            <img src="{% static 'public/undraw-reading.png' %}" alt="..."
+                class="float-end border mt-4 border-5 rounded-start-pill shadow">
+        </div>
+    </div>
+    
+</section>
+{% endblock %}
